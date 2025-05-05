@@ -15,6 +15,22 @@
     "active_on_discord_desktop_online": {
       "false": "",
       "true": "<:OnlineDesktop:1368832396706709584>"
+    },
+    "active_on_discord_web_idle": {
+      "false": "",
+      "true": "<:IdleWeb:1368832542614229044>"
+    },
+    "active_on_discord_desktop_idle": {
+      "false": "",
+      "true": "<:IdleDesktop:1368832552198078514>"
+    },
+    "active_on_discord_web_offline": {
+      "false": "",
+      "true": "<:OfflineWeb:1368832538629636106>"
+    },
+    "active_on_discord_desktop_offline": {
+      "false": "",
+      "true": "<:OfflineDesktop:1368832552198078514>"
     }
   }
 }
