@@ -1,12 +1,21 @@
 {
   "discord_status": {
-    "active_on_discord_web": {
+    "active_on_discord_web_dnd": {
       "false": "",
       "true": "<:DndWeb:1368832548519673979>"
     },
-    "active_on_discord_desktop": {
+    "active_on_discord_desktop_dnd": {
       "false": "",
       "true": "<:DndDesktop:1368832546024067072>"
+    },
+    "discord_status": {
+    "active_on_discord_web_online": {
+      "false": "",
+      "true": "<:OnlineWeb:1368832548519673979>"
+    },
+    "active_on_discord_desktop_online": {
+      "false": "",
+      "true": "<:OnlineDesktop:1368832546024067072>"
     }
   }
 }
