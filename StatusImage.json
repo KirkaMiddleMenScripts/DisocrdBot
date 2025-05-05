@@ -26,11 +26,11 @@
     },
     "active_on_discord_web_idle": {
       "false": "",
-      "true": "https://cdn.discordapp.com/emojis/1368832542614229044.webp"
+      "true": "https://cdn.discordapp.com/emojis/1368832552198078514.webp"
     },
     "active_on_discord_desktop_idle": {
       "false": "",
-      "true": "https://cdn.discordapp.com/emojis/1368832552198078514.webp"
+      "true": "https://cdn.discordapp.com/emojis/1368832542614229044.webp"
     },
     "active_on_discord_mobile_idle": {
       "false": "",
@@ -42,7 +42,7 @@
     },
     "active_on_discord_desktop_offline": {
       "false": "",
-      "true": "https://cdn.discordapp.com/emojis/1368832552198078514.webp"
+      "true": "https://cdn.discordapp.com/emojis/1368845084006551614.webp"
     },
     "active_on_discord_mobile_offline": {
       "false": "",
