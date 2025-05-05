@@ -1,12 +1,12 @@
 {
   "discord_status": {
     "active_on_discord_web": {
-      "status": "dnd",
-      "emoji": "<:DndWeb:1368832548519673979>"
+      "false": "",
+      "true": "<:DndWeb:1368832548519673979>"
     },
     "active_on_discord_desktop": {
-      "status": "dnd",
-      "emoji": "<:DndDesktop:1368832546024067072>"
+      "false": "",
+      "true": "<:DndDesktop:1368832546024067072>"
     }
   }
 }
