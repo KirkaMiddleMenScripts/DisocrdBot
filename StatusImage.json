@@ -1,0 +1,52 @@
+{
+  "discord_status": {
+    "active_on_discord_web_dnd": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832548519673979.webp"
+    },
+    "active_on_discord_desktop_dnd": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832546024067072.webp"
+    },
+    "active_on_discord_mobile_dnd": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368846619134660658.webp"
+    },
+    "active_on_discord_web_online": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832555520098354.webp"
+    },
+    "active_on_discord_desktop_online": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832396706709584.webp"
+    },
+    "active_on_discord_mobile_online": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832396706709584.webp"
+    },
+    "active_on_discord_web_idle": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832542614229044.webp"
+    },
+    "active_on_discord_desktop_idle": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832552198078514.webp"
+    },
+    "active_on_discord_mobile_idle": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368846625216139284.webp"
+    },
+    "active_on_discord_web_offline": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832538629636106.webp"
+    },
+    "active_on_discord_desktop_offline": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368832552198078514.webp"
+    },
+    "active_on_discord_mobile_offline": {
+      "false": "",
+      "true": "https://cdn.discordapp.com/emojis/1368846613073760276.webp"
+    }
+  }
+}
