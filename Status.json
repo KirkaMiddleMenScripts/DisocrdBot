@@ -8,6 +8,10 @@
       "false": "",
       "true": "<:DndDesktop:1368832546024067072>"
     },
+    "active_on_discord_mobile_dnd": {
+      "false": "",
+      "true": "<:DndMobile:1368846619134660658>"
+    },
     "active_on_discord_web_online": {
       "false": "",
       "true": "<:OnlineWeb:1368832555520098354>"
@@ -15,6 +19,10 @@
     "active_on_discord_desktop_online": {
       "false": "",
       "true": "<:OnlineDesktop:1368832396706709584>"
+    },
+    "active_on_discord_mobile_online": {
+      "false": "",
+      "true": "<:OnlineMobile:1368846615934140536>"
     },
     "active_on_discord_web_idle": {
       "false": "",
@@ -24,6 +32,10 @@
       "false": "",
       "true": "<:IdleDesktop:1368832552198078514>"
     },
+    "active_on_discord_mobile_idle": {
+      "false": "",
+      "true": "<:IdleMobile:1368846625216139284>"
+    },
     "active_on_discord_web_offline": {
       "false": "",
       "true": "<:OfflineWeb:1368832538629636106>"
@@ -31,6 +43,10 @@
     "active_on_discord_desktop_offline": {
       "false": "",
       "true": "<:OfflineDesktop:1368832552198078514>"
-    }
+    },
+    "active_on_discord_mobile_offline": {
+      "false": "",
+      "true": "<:OfflineMobile:1368846613073760276>"
+    },
   }
 }
